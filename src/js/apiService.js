@@ -11,10 +11,13 @@ export default class PixabayService {
         const request = `/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`
         const response = await fetch(BASE_URL + request);
         const newResponse = await response.json();
-        this.page += 1;
         return newResponse.hits;
     }
     
+    incrementPage(){
+        this.page += 1;
+    }
+
     resetPage() {
         this.page = 1;
     }
@@ -38,6 +41,3 @@ export default class PixabayService {
 //                 return hits;
 //         });
 //     }
-// incrementPage(){
-//     this.page += 1;
-// }
